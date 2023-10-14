@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      list: リスト  #g
+
+    attributes:
+      list:
+        finday: フィンデイ  #g
+        finish: 仕上げる  #g
+        memo: メモ  #g
+        start: 始める  #g
+        title: タイトル  #g

@@ -1,0 +1,40 @@
+<h3 class="head-title">New LIst</h3>
+
+<%= render "shared/error",obj: @list%>
+
+<%= form_with model:@list do |f| %>
+    <div class="new-table">
+            <table class="bg-light border border-1 w-100">
+                <tr>
+                    <th class="form-padding form-titles"><%= f.label :title ,"タイトル" %></th>
+                    <td class="form-padding"><%= f.text_field :title ,class:"form-control form-width-md"%></td>
+                </tr>
+
+                <tr class="new-forms">
+                    <th class="form-padding form-titles"><%= f.label :start ,"開始日" %></th>
+                    <td class="form-padding form-control-lg"><%= f.date_select :start ,use_month_numbers:true %></td>
+                </tr>
+
+                <tr>
+                    <th class="form-padding form-titles"><%= f.label :finish ,"終了日" %></th>
+                    <td class="form-padding form-control-lg"><%= f.date_select :finish ,use_month_numbers:true %></td>
+                </tr>
+
+                <tr>
+                    <th class="form-padding form-titles"><%= f.label :finday ,"終日の場合はチェックを入れます" %></th>
+                    <td class="form-padding "><%= check_box :list, :finday,  { style: 'transform: scale(2);'} %></td>
+                </tr>
+
+                <tr>
+                <th class="form-padding form-titles"><%= f.label :memo ,"スケジュールメモ" %></th>
+                <td class="form-padding"><%= f.text_area :memo ,class:"form-control form-width-md",rows:"5" %></td>
+                </tr>
+            </table>
+            <div class="container new-option">
+                <div class="row">
+                    <%= link_to "キャンセル", :lists , class:"me-3 col-sm-2 nav-link bg-white text-dark text-center border rounded fw-bolder" %>
+                    <%= f.submit "保存" , class:"col-sm-2 nav-link bg-dark text-white text-center border rounded fw-bolder" %>
+                </div>
+            </div>
+    </div>
+<% end %>

@@ -1,0 +1,51 @@
+<h3 class="head-title">All LIst</h3>
+
+<div class="new-table mb-5">
+        <table class="table align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>タイトル</th>
+                    <th>開始日</th>
+                    <th>終了日</th>
+                    <th>終日</th>
+                    <th>更新日時</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                <% @lists.each do |list| %>
+                    <tr>
+                        <td><%= list.id %></td>
+                        <td><%= list.title %></td>
+                        <td><%= l list.start,formats: :long %></td>
+                        <td><%= l list.finish,formats: :long %></td>
+                        <td>
+                            <% if list.finday == true %>
+                                <%= "○" %>
+                            <% end %>
+                        </td>
+                        <td><%= l list.updated_at,format: :long %></td>
+                        <td>
+                            <%= link_to "View", list, class: "btn btn-sm btn-outline-dark" %>
+                        </td>
+                        <td>
+                            <%= link_to "Edit", [:edit, list], class: "btn btn-sm btn-outline-dark"%>
+                        </td>
+                        <td>
+                            <%= link_to "Delete", list, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-outline-dark" %>
+                         </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+</div>
+    <div class="container">    
+        <div class="fw-bolder row total-table align-items-center mb-5">
+            <p class="col-sm-6">Total LIsts: <span class="total"><%= @lists_count %></span></p>
+            <p class="col-sm-6 text-end">Today: <%= l Time.now, format: :short %></p>
+        </div>
+    </div>
