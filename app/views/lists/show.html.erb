@@ -1,0 +1,36 @@
+<h3 class="head-title">VIew LIst</h3>
+
+<div class="new-table">
+    <table class="bg-light border border-1 w-100">
+    <tr>
+        <th class="form-padding form-titles">タイトル</th>
+        <td class="form-padding"><%= @list.title %></td>
+    </tr>
+    <tr>
+        <th class="form-padding form-titles">開始日</th>
+        <td class="form-padding"><%= l @list.start,formats: :long %></td>
+    </tr>
+    <tr>
+        <th class="form-padding form-titles">終了日</th>
+        <td class="form-padding"><%= l @list.finish,formats: :long %></td>
+    </tr>
+    <tr>
+        <th class="form-padding form-titles">終日</th>
+        <td class="form-padding">
+            <% if @list.finday == true %>
+                <%= "○" %>
+            <% end %>
+        </td>
+    </tr>
+    <tr>
+        <th class="form-padding form-titles">スケジュールメモ</th>
+        <td class="form-padding"><%= @list.memo %></td>
+    </tr>
+    </table>
+    <div class="container new-option">
+        <div class="row">
+            <%= link_to "予定一覧へ", :lists ,class:"me-3 col-sm-2 nav-link bg-white text-dark text-center border rounded fw-bolder" %>
+            <%= link_to "編集", [:edit, @list] ,class:"col-sm-2 nav-link bg-dark text-white text-center border rounded fw-bolder" %>
+        </div>
+    </div>
+</div>
